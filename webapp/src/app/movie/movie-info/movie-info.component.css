@@ -1,0 +1,14 @@
+.card-img-top
+{
+ height: 400px;
+ width: 445px;
+}
+.material-icons
+{
+    vertical-align: center;
+}
+.ico 
+{
+    font-size: 12px;
+    vertical-align: center;
+}

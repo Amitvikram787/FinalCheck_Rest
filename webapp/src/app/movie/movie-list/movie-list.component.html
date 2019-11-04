@@ -1,0 +1,10 @@
+<app-search></app-search>
+<div class="row">
+  <div class="col-lg-3" *ngFor="let food of foods ">
+    <app-movie-info [Food]="food"  (addedToCart)="addFoodToCart($event)">
+
+    </app-movie-info>
+  
+
+  </div>
+</div>

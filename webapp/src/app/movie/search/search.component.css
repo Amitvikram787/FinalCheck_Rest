@@ -1,0 +1,13 @@
+.jumbotron
+{
+    background-image:url("https://images.unsplash.com/photo-1571033025891-b508c0805523?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1489&q=80");
+    background-size: cover;
+}
+.abc
+{
+    background-color: white;
+    padding: 4px;
+    color: gray;
+    font-size: 13px;
+    vertical-align: bottom;
+}

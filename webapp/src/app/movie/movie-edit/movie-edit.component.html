@@ -1,0 +1,96 @@
+<div class="container">
+    <div>
+      <h1>Edit Menu Item</h1>
+   </div>
+   
+      <form [formGroup]="editForm" >
+        <div class="form-group">
+          <div class="row">
+            <div class="alert alert-success" *ngIf="productEdited">
+              Edited Successfully
+            </div>
+            <div class="col-sm-12 col-md-12 col-lg-12">
+              <label for="Iname">Movie name</label>
+              <input type="text" class="form-control" id="Iname" name="iname " formControlName="name">
+             </div>
+          </div>
+        </div>
+        
+        
+        
+        <div class="row form-group">
+          <div class="col-sm-12 col-md-12 col-lg-3">
+            <label for="Iprice">Box Office</label>
+            <input type="text" class="form-control" id="Iprice" name="iprice" formControlName="price">
+        </div>
+  
+          <div class="col-sm-12 col-md-12 col-lg-3">
+            <label for="Idate">Date of launch</label>
+            <input type="Date" class="form-control" id="Idate" name="idate" formControlName="dateOfLaunch">
+  
+          </div>
+  
+          <div class="col-sm-12 col-md-12 col-lg-3">
+            <div class="form-group">
+              <label for="Icategory">Gener</label>
+              <select class="form-control" id="Icategory" name="icategory" formControlName="category">
+               
+                <option>Romantic</option>
+                <option>Superhero</option>
+                <option >Science Fiction</option>
+                <option>comedy</option>
+                <option>Horror</option>
+               
+              </select>
+            </div>
+          </div>
+          <div class="col-sm-12 col-md-12 col-lg-3">
+          <div class="row">
+              <div class="col-12">
+                <label for="Active">Active</label>
+  
+              </div>
+            </div>
+  
+            <div class="row">
+              <div class="col-12">
+  
+                <div class="form-check form-check-inline">
+  
+                  <span>
+                    <input type="radio" class="form-check-input" [value]="true" name="active" id="active" formControlName="active">
+                    <label for="Active" class="form-check-lable">Yes</label>
+                    <input type="radio" class="form-check-input" [value]="false" name="active" id="active" formControlName="active">
+                    <label for="Active" class="form-check-lable">No</label>
+                  </span>
+                  <br>
+                  </div>
+                <br>
+  
+              </div>
+  
+            </div>
+  
+          </div>
+  
+        </div>
+        <div class="form-check">
+          <input type="checkbox" class="form-check-input"  id="Ifree" name="ifree" formControlName="freeDelivery">
+          <label class="form-check-label" for="Ifree">
+           Has Teaser
+          </label>
+         </div>
+  
+  
+        <br>
+  
+        <div class="row">
+          <div class="col-sm-12 col-md-12 col-lg-12">
+            <button class="btn btn-primary " type="submit" (click)="onSubmitEditForm()">
+              save
+  
+            </button>
+          </div>
+        </div>
+    </form>
+  </div>

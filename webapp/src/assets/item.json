@@ -1,0 +1,7 @@
+[
+    {"id":1, "title":"Avatar", "boxoffice":278954114,"active":true,"date_of_launch":"2017-03-15","gener":"Science Fiction","hasTeaser":true,"image":"https://images-na.ssl-images-amazon.com/images/I/91ErqttBmKL._RI_.jpg"},
+    {"id":2, "title":"Avengers", "boxoffice":278954114,"active":false,"date_of_launch":"2017-12-18","gener":"Superhero","hasTeaser":false,"image":"https://cdn.shopify.com/s/files/1/0558/2081/files/Taylor_InfinityWar_REGULAR_Lg_1024x1024.jpg?v=1532236034"},
+    {"id":3, "title":"Titanic", "boxoffice":278954114,"active":true,"date_of_launch":"2019-07-21","gener":"Romantic","hasTeaser":true,"image":"https://i.pinimg.com/originals/43/da/e0/43dae080442402c7fab4c93603fc74bf.jpg"},
+    {"id":4, "title":"End Game", "boxoffice":278954114,"active":false,"date_of_launch":"2020-03-30","gener":"Science Fiction","hasTeaser":false,"image":"https://images-na.ssl-images-amazon.com/images/I/51le5tUBQWL.jpg"},
+    {"id":5, "title":"Episode VII", "boxoffice":278954114,"active":true,"date_of_launch":"2018-07-09","gener":"comedy","hasTeaser":true,"image":"https://cdn.shopify.com/s/files/1/0747/3829/products/mHP0005_1024x1024.jpeg?v=1485014430"}
+]
