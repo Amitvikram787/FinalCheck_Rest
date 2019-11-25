@@ -1,0 +1,52 @@
+<div class="row justify-content-center">
+  <div class="col-12 col-md-12 col-lg-6">
+    <div class="page-title">Favorites</div>
+    <div class="alert alert-secondary"
+      *ngIf="favorite?.favorites === null || favorite?.favorites.length===0; else movies">
+      No items in Favorite. Use 'Add to Favorite' option in Movie
+    </div>
+    <ng-template #movies>
+      <ul class="list-group">
+        <li class="list-group-item" *ngFor="let movie of favorite.favorites">
+          <div class="row">
+            <div class="col-6 text-muted">
+              {{movie.favorite.title}}
+            </div>
+
+            <div class="col-6">
+              <div class="float-right price-cart">
+                {{movie.favorite.boxOffice | currency}}
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-12 ">
+              <div class="mr-auto">
+                <i class="material-icons cart-delete" (click)="onRemove(movie.favoriteId)">
+                  delete_forever
+                </i>
+              </div>
+            </div>
+          </div>
+        </li>
+        <li class="list-group-item">
+          <div class="row">
+            <div class="col-5">
+              <h3>Number of Favorites</h3>
+            </div>
+            <div class="col-7">
+              <div class="price float-right">
+                {{favorite.total}}
+              </div>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </ng-template>
+  </div>
+</div>
+<div class="row justify-content-center mt-2">
+  <div class="col-12 col-md-12 col-lg-6">
+    <a href="#" routerLink="" class="btn btn-primary">Continue with shopping</a>
+  </div>
+</div>

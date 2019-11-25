@@ -1,40 +1,43 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import{FormsModule,ReactiveFormsModule} from '@angular/forms';
-import {HttpClientModule} from '@angular/common/http'
+import { FormsModule, ReactiveFormsModule } from "@angular/forms"
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './site/header/header.component';
+import { NotFoundComponent } from './site/not-found/not-found.component';
 import { LoginComponent } from './site/login/login.component';
 import { SignupComponent } from './site/signup/signup.component';
-import { PageNotFoundComponent } from './site/page-not-found/page-not-found.component';
-import { MovieEditComponent } from './movie/movie-edit/movie-edit.component';
-import { MovieInfoComponent } from './movie/movie-info/movie-info.component';
-import { MovieListComponent } from './movie/movie-list/movie-list.component';
-import { SearchComponent } from './movie/search/search.component';
-import { FavoriteComponent } from './shoping/favorite/favorite.component';
+import { UserService } from './site/user.service';
+import { FavoriteComponent } from './shoppinglist/favorite/favorite.component';
+import { MovieEditComponent } from './movies/movie-edit/movie-edit.component';
+import { MovieItemComponent } from './movies/movie-item/movie-item.component';
+import { MovieListComponent } from './movies/movie-list/movie-list.component';
+import { MovieSearchComponent } from './movies/movie-search/movie-search.component';
+import { MovieService } from './movies/movie.service';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
+    NotFoundComponent,
     LoginComponent,
     SignupComponent,
-    PageNotFoundComponent,
+    FavoriteComponent,
     MovieEditComponent,
-    MovieInfoComponent,
+    MovieItemComponent,
     MovieListComponent,
-    SearchComponent,
-    FavoriteComponent
+    MovieSearchComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    AppRoutingModule
   ],
-  providers: [],
+  providers: [UserService, MovieService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

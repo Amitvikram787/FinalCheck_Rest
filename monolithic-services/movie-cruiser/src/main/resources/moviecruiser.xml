@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	<bean name="dateFormat" class="java.text.SimpleDateFormat">
+		<constructor-arg value="yyyy-MM-dd"></constructor-arg>
+	</bean>
+	<bean name="m1" class="com.cognizant.moviecruiser.model.Movie">
+		<property name="id" value="1" />
+		<property name="title" value="Avatar" />
+		<property name="boxOffice" value="2787965087" />
+		<property name="active" value="true" />
+		<property name="dateOfLaunch">
+			<bean factory-bean="dateFormat" factory-method="parse">
+				<constructor-arg value="2017-03-15"></constructor-arg>
+			</bean>
+		</property>
+		<property name="genre" value="Science Fiction" />
+		<property name="hasTeaser" value="true" />
+		<property name="imgSrc"
+			value="https://images-NA.SSL-images-amazon.com/images/I/91ErqttBmKL._RI_.jpg" />
+	</bean>
+	<bean name="m2" class="com.cognizant.moviecruiser.model.Movie">
+		<property name="id" value="2" />
+		<property name="title" value="Avengers:Infinity War" />
+		<property name="boxOffice" value="1518812928" />
+		<property name="active" value="false" />
+		<property name="dateOfLaunch">
+			<bean factory-bean="dateFormat" factory-method="parse">
+				<constructor-arg value="2017-12-13"></constructor-arg>
+			</bean>
+		</property>
+		<property name="genre" value="Comedy" />
+		<property name="hasTeaser" value="true" />
+		<property name="imgSrc"
+			value="http://cdn.shopify.com/s/files/1/0558/2081/files/Taylor_InfinityWar_REGULAR_Lg_1024x1024.jpg?v=1532236034" />
+	</bean>
+	<bean name="m3" class="com.cognizant.moviecruiser.model.Movie">
+		<property name="id" value="3" />
+		<property name="title" value="Titanic" />
+		<property name="boxOffice" value="2787965087" />
+		<property name="active" value="true" />
+		<property name="dateOfLaunch">
+			<bean factory-bean="dateFormat" factory-method="parse">
+				<constructor-arg value="2018-08-21"></constructor-arg>
+			</bean>
+		</property>
+		<property name="genre" value="Romance" />
+		<property name="hasTeaser" value="false" />
+		<property name="imgSrc"
+			value="https://i.pinimg.com/originals/43/da/e0/43dae080442402c7fab4c93603fc74bf.jpg" />
+	</bean>
+	<bean name="m4" class="com.cognizant.moviecruiser.model.Movie">
+		<property name="id" value="4" />
+		<property name="title" value="Jurassic World" />
+		<property name="boxOffice" value="1671713208" />
+		<property name="active" value="false" />
+		<property name="dateOfLaunch">
+			<bean factory-bean="dateFormat" factory-method="parse">
+				<constructor-arg value="2017-07-02"></constructor-arg>
+			</bean>
+		</property>
+		<property name="genre" value="Science Fiction" />
+		<property name="hasTeaser" value="true" />
+		<property name="imgSrc"
+			value="https://cdn.images.express.co.uk/img/dynamic/36/590x/jurassic-world-fallen-kingdom-age-rating-jurassic-world-2-age-rating-970875.jpg?r=1534498589457" />
+	</bean>
+	<bean name="m5" class="com.cognizant.moviecruiser.model.Movie">
+		<property name="id" value="5" />
+		<property name="title" value="Avengers:End Game" />
+		<property name="boxOffice" value="2750760348" />
+		<property name="active" value="true" />
+		<property name="dateOfLaunch">
+			<bean factory-bean="dateFormat" factory-method="parse">
+				<constructor-arg value="2022-11-02"></constructor-arg>
+			</bean>
+		</property>
+		<property name="genre" value="Science Fiction" />
+		<property name="hasTeaser" value="false" />
+		<property name="imgSrc"
+			value="https://upload.wikimedia.org/wikipedia/en/0/0d/Avengers_Endgame_poster.jpg" />
+	</bean>
+	<bean name="moviesList" class="java.util.ArrayList">
+		<constructor-arg>
+			<list>
+				<ref bean="m1" />
+				<ref bean="m2" />
+				<ref bean="m3" />
+				<ref bean="m4" />
+				<ref bean="m5" />
+			</list>
+		</constructor-arg>
+	</bean>
+</beans>

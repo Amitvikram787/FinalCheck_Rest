@@ -1,0 +1,52 @@
+[
+    {
+        "imgPath": "https://images-NA.SSL-images-amazon.com/images/I/91ErqttBmKL._RI_.jpg",
+        "id": "1",
+        "title": "Avatar",
+        "boxOffice": 2787965087,
+        "active": true,
+        "genre": "Science Fiction",
+        "hasTeaser": true,
+        "dateOfLaunch": "2017-03-15"
+    },
+    {
+        "imgPath": "http://cdn.shopify.com/s/files/1/0558/2081/files/Taylor_InfinityWar_REGULAR_Lg_1024x1024.jpg?v=1532236034",
+        "id": "2",
+        "title": "Avengers:Infinity War",
+        "boxOffice": 1518812928,
+        "active": false,
+        "genre": "Comedy",
+        "hasTeaser": true,
+        "dateOfLaunch": "2017-12-13"
+    },
+    {
+        "imgPath": "https://i.pinimg.com/originals/43/da/e0/43dae080442402c7fab4c93603fc74bf.jpg",
+        "id": "3",
+        "title": "Titanic",
+        "boxOffice": 2187463944,
+        "active": true,
+        "genre": "Romance",
+        "hasTeaser": false,
+        "dateOfLaunch": "2018-08-21"
+    },
+    {
+        "imgPath": "https://cdn.images.express.co.uk/img/dynamic/36/590x/jurassic-world-fallen-kingdom-age-rating-jurassic-world-2-age-rating-970875.jpg?r=1534498589457 ",
+        "id": "4",
+        "title": "Jurassic World",
+        "boxOffice": 1671713208,
+        "active": false,
+        "genre": "Science Fiction",
+        "hasTeaser": true,
+        "dateOfLaunch": "2017-07-02"
+    },
+    {
+        "imgPath": "https://upload.wikimedia.org/wikipedia/en/0/0d/Avengers_Endgame_poster.jpg",
+        "id": "5",
+        "title": "Avengers:End Game",
+        "boxOffice": 2750760348,
+        "active": true,
+        "genre": "Science Fiction",
+        "hasTeaser": false,
+        "dateOfLaunch": "2022-11-02"
+    }
+]

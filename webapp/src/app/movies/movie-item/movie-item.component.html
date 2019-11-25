@@ -1,0 +1,59 @@
+<div class="card mb-3">
+  <div class="card-img-top">
+    <img [src]="movie.imgSrc" [alt]="movie.title" width=100% height="400px">
+  </div>
+  <div class="card-body">
+    <div class="d-flex">
+      <div class="mr-auto">
+        {{movie.title}}
+      </div>
+      <div class="ml-left">
+        {{movie.boxOffice | currency }}
+      </div>
+    </div>
+    <div class="d-flex">
+      <div class="mr-auto">
+        <span class="badge badge-success" *ngIf="movie.active && isEditAllowed()">Active</span>
+        <span class="badge badge-danger" *ngIf="!movie.active && isEditAllowed()">Inactive</span>
+        <span class="text-muted">{{movie.genre}}</span>
+      </div>
+      <div class="ml-auto" *ngIf="movie.hasTeaser">
+        <i class="material-icons">
+          ondemand_video
+        </i>
+        <span class="badge badge-info">has Teaser</span>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12 mt-2" *ngIf="movieAdded">
+        <div class="alert alert-success">
+          Movie Added to Favorite Successfully
+          <button type="button" class="close" data-dismiss="alert" aria-label="close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="d-flex flex-row mt-3">
+      <div class="mr-auto text-muted launch" *ngIf="isEditAllowed()">
+        <i class="material-icons" style="font-size: 15px;">
+          access_time
+        </i>
+        <small>Launch</small>
+        <div style="font-size: 10px;">{{movie.dateOfLaunch }}</div>
+      </div>
+      <div class="ml-auto">
+        <button class="btn btn-danger" *ngIf="isEditAllowed()" [routerLink]="['/edit',movie.id]"><i
+            class="material-icons" style="font-size: 15px;">
+            edit
+          </i><a style="color:white"> Edit</a>
+        </button>
+        <button class="btn btn-danger" *ngIf="!isEditAllowed()" (click)="onAddToFavorite(movie.id)"><i
+            class="material-icons" style="font-size: 15px;">
+            add_shopping_cart
+          </i><a style="color:white"> Add To Favorite</a>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,111 +1,106 @@
-<div class="row justify-content-center">
-  <div class="col-sm-12 col-md-6 col-lg-6">
-      <div class="card">
-          <div class="card-header">
-              Signup
+<div class="row justify-content-center mt-3">
+  <div class="col-12 col-md-6 col-lg-3">
+    <div class="card">
+      <div class="card-body">
+        <div class="page-title">
+          <h3>SignUp</h3>
+        </div>
+        <div class="alert alert-success" *ngIf="formSubmitted">
+          Successfully Sign up
+        </div>
+        <div *ngIf="formSubmitted">
+          <a href="#" routerLink="/login">Login</a>
+        </div>
+        <form [formGroup]="signUpForm" (submit)="onSubmitSignUp()" *ngIf="!formSubmitted">
+          <div class="alert alert-danger" role="alert"
+            *ngIf="signUpForm.get('userName').touched && signUpForm.get('userName').hasError('userTaken')">Username is
+            already exists
           </div>
-          <div class="alert alert-success" *ngIf="formss">
-                  Sucessfully Signed up!!
+          <div class="alert alert-warning" *ngIf="signUpForm.pending">
+            <div class="spinner-border">
+              <span class="sr-only">Loading...</span>
+            </div>
           </div>
-           <div *ngIf="formss">
-
-           <a  routerLink="/login" class="btn btn-primary">Login</a>
-           </div>
-          <div class="card-body">
-              <form [formGroup]="signup" (submit)="onSubmit()" *ngIf="!formss">
-                  <div class="alert alert-danger" role="alert" *ngIf=" name.hasError('userNameTaken')">
-                      Username already exists
-                  </div>
-                  <div class="alert alert-warning" role="alert" *ngIf="signup.pending">
-                      <div class="spinner-border">
-                              <span class="sr-only"> Loading....</span>
-                      </div>
-                     
-                  </div>
-                  <div class="form-group">
-                      <label for="Username"> Username</label>
-                      <input type="text" class="form-control" placeholder="Enter Username" name="Username" formControlName="name">
-                      <span class="validation-error" *ngIf="name.touched && name.hasError('required')"> Username required</span>
-                      <div class="validation-error" *ngIf="name.touched && name.hasError('maxlength')">
-                          Username cannot exceed 20 charteres
-
-                      </div>
-                  </div>
-                  <div class="row">
-                      <div class="col-sm-12 col-md-6 col-lg-6">
-                          <div class="form-group ">
-                              <label for="FirstName">First Name</label>
-                              <input type="text" class="form-control" placeholder="Enter First Name" name="First" formControlName="fname">
-                               <span class="validation-error" *ngIf="fname.touched &&  fname.hasError('required')"> First Name Requried</span>
-                               <div class="validation-error" *ngIf="fname.touched && fname.hasError('pattern')">
-                                   FirstName  should have charcter
-
-                               </div>
-                               <div class="validation-error" *ngIf="fname.touched && fname.hasError('maxlength')">
-                                    FirstName cannot exceed 50 charteres
-          
-                                  </div>
-
-
-                          </div>
-                      </div>
-                    
-
-                      <div class="col-sm-12 col-md-6 col-lg-6">
-                          <div class="form-group ">
-                              <label for="LastName">Last Name</label>
-                              <input type="text" class="form-control" placeholder="Enter Last Name" name="Last" formControlName="lname">
-                              <span class="validation-error" *ngIf="lname.touched && !lname.valid"> Last Name Requried</span>
-                              <div class="validation-error" *ngIf="lname.touched && lname.hasError('pattern')">
-                                    LasttName  should have charcter
- 
-                                </div>
-                                <div class="validation-error" *ngIf="lname.touched && lname.hasError('maxlength')">
-                                     LasttName cannot exceed 50 charteres
-           
-                                   </div>
- 
-
-                          </div>
-                      </div>
-                  </div>
-                          <div class="row">
-
-                              <div class="col-sm-12 col-md-6 col-lg-6">
-                                  <div class="form-group ">
-                                      <label for="Password">Password</label>
-                                      <input type="password" class="form-control" placeholder="Enter Password"  name="pass" formControlName="password">
-                                      <span class="validation-error" *ngIf="password.touched && !password.valid"> Password Requried</span>
-
-                                  </div>
-                              </div>
-
-                                      <div class="col-sm-12 col-md-6 col-lg-6">
-                                          <div class="form-group ">
-                                       <label for="Password"> Confirm Password</label>
-                                       <input type="password" class="form-control" placeholder="Enter confirm Password"  name ="cpass" formControlName="cpassword">
-                                       <span class="validation-error" *ngIf="cpassword.touched && cpassword.hasError('required')"> Confirm- Password  Requried</span>
-                                       <span class="validation-error" *ngIf="cpassword.touched && cpassword.hasError('nomatch')">password not match</span>
-
-                                          </div>
-                                      </div>
-
-
-
-                                  </div>
-                          <button  class="btn btn-primary" [disabled]="!signup.valid">
-                              Signup
-
-
-
-                          </button>
-                              
-                          
-              </form>
-
+          <div class="form-group">
+            <label for="username">Username</label>
+            <input type="text" formControlName="userName" class="form-control" placeholder="Enter Username">
+            <div class="validation-error"
+              *ngIf="signUpForm.get('userName').touched && signUpForm.get('userName').hasError('required')">Username is
+              required
+            </div>
+            <div class="validation-error"
+              *ngIf="signUpForm.get('userName').touched && signUpForm.get('userName').hasError('maxlength')">Username
+              cannot exceed 20 characters
+            </div>
           </div>
-
+          <div class="row">
+            <div class="col-sm-12 col-md-6">
+              <div class="form-group">
+                <label for="firstname">First Name</label>
+                <input type="text" formControlName="firstName" class="form-control" placeholder="Enter First Name">
+                <div class="validation-error"
+                  *ngIf="signUpForm.get('firstName').touched && signUpForm.get('firstName').hasError('required')">First
+                  Name is required
+                </div>
+                <div class="validation-error"
+                  *ngIf="signUpForm.get('firstName').touched && signUpForm.get('firstName').hasError('pattern')">
+                  First Name should contain only alphabets
+                </div>
+                <div class="validation-error"
+                  *ngIf="signUpForm.get('firstName').touched && signUpForm.get('firstName').hasError('maxlength')">
+                  First Name cannot exceed 50 characters
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-12 col-md-6">
+              <div class="form-group">
+                <label for="lastname">Last Name</label>
+                <input type="text" formControlName="lastName" class="form-control" placeholder="Enter Last Name">
+                <div class="validation-error"
+                  *ngIf="signUpForm.get('lastName').touched && signUpForm.get('lastName').hasError('required')">Last
+                  Name is required
+                </div>
+                <div class="validation-error"
+                  *ngIf="signUpForm.get('lastName').touched && signUpForm.get('lastName').hasError('pattern')">
+                  Last Name should contain only alphabets
+                </div>
+                <div class="validation-error"
+                  *ngIf="signUpForm.get('lastName').touched && signUpForm.get('lastName').hasError('maxlength')">
+                  Last Name cannot exceed 50 characters
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-12 col-md-6">
+              <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" formControlName="password" class="form-control" placeholder="Enter Password">
+                <div class="validation-error"
+                  *ngIf="signUpForm.get('password').touched && signUpForm.get('password').hasError('required')">Password
+                  is required
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-12 col-md-6">
+              <div class="form-group">
+                <label for="confirmPassword">Confirm Password</label>
+                <input type="password" formControlName="confirmPassword" class="form-control"
+                  placeholder="Enter Confirm Password">
+                <div class="validation-error"
+                  *ngIf="signUpForm.get('confirmPassword').touched && signUpForm.get('confirmPassword').hasError('required')">
+                  Confirm Password is required
+                </div>
+                <div class="validation-error"
+                  *ngIf="signUpForm.get('confirmPassword').touched && signUpForm.get('confirmPassword').hasError('nomatch')">
+                  Confirm Password is not matched
+                </div>
+              </div>
+            </div>
+          </div>
+          <button class="btn btn-primary" type="submit" [disabled]=!signUpForm.valid>Sign Up</button>
+        </form>
       </div>
-
+    </div>
   </div>
 </div>

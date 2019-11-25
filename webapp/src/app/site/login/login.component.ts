@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, NgForm } from '@angular/forms';
-import { AuthService } from '../auth.service';
 import { ActivatedRoute, Router } from '@angular/router';
+import { AuthService } from '../auth.service';
+import { NgForm } from '@angular/forms';
+import { UserAuthService } from 'src/app/services/user-auth.service';
 
 @Component({
   selector: 'app-login',
@@ -9,33 +10,21 @@ import { ActivatedRoute, Router } from '@angular/router';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-
-   isLoginValid:boolean=true;
-   authSource:boolean=false;
-  constructor(private authService:AuthService,
-    private rout:ActivatedRoute,
-    private router:Router) { 
-      this.authSource=this.rout.snapshot.queryParams['notLogged'];
-    }
+  isLoginValid = true;
+  authSource = false;
+  constructor(private authService: AuthService, private router: Router, private route: ActivatedRoute, private userAuthService: UserAuthService) {
+    this.authSource = this.route.snapshot.queryParams['notLogged'];
+  }
 
   ngOnInit() {
+    if (this.userAuthService.getMenuItemId() != -1) {
+      this.isLoginValid = true;
+    } else {
+      this.isLoginValid = false;
+    }
   }
-  onSubmit(form:NgForm)
-  {
-    const username=form.value.uname;
-    const password=form.value.pwd;
-    if(username==='John')
-    {
-      this.isLoginValid=false;
-
-    }
-    else
-    {
-      this.authService.logIn(username,password);
-      this.router.navigate([this.authService.redirectUrl]);
-     
-    }
-  
+  onSubmit(form: NgForm) {
+    this.authService.logIn(form.value.username, form.value.password);
   }
 
 }

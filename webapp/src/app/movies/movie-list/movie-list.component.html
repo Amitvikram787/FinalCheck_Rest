@@ -1,0 +1,6 @@
+<app-movie-search></app-movie-search>
+<div class="row">
+  <div class="col-md-3" *ngFor="let movie of movies">
+    <app-movie-item [movie]="movie" (addedToFavorite)="addMovieToFavorite($event)"></app-movie-item>
+  </div>
+</div>

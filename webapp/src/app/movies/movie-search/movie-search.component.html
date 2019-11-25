@@ -1,0 +1,14 @@
+<div class="col-12 jumbotron search-container">
+  <div class="display-4">Movies</div>
+  <form>
+    <div class="input-group">
+      <div class="input-group-prepend">
+        <span class="input-group-text">
+          <i class="material-icons">
+            movie
+          </i></span>
+      </div>
+      <input type="text" class="form-control" placeholder="Search Movie" (input)="onSearchText($event)">
+    </div>
+  </form>
+</div>

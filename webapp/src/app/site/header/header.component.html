@@ -1,27 +1,39 @@
-<nav class="navbar navbar-expand-sm navbar-dark bg-primary">
-  <a routerLink="" class=" navbar-brand">
-          <i class="material-icons">
-            movie
-                  </i>
-         Movie crusier
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a routerLink="" class="navbar-brand">
+    <i class="material-icons" style="vertical-align: middle;">
+      local_movies
+    </i>Movie Cruiser
   </a>
-  <button class="navbar-toggler" data-toggle="collapse" data-target="#content">
-      <span class="navbar-toggler-icon"></span>
+  <button class="navbar-toggler" data-toggle="collapse" data-target="#navcontent">
+    <span class="navbar-toggler-icon"></span>
   </button>
-  <div class="collapse navbar-collapse" id="content">
-      <ul class="navbar-nav ml-auto">
-          
-          
-        <li class="nav-item"  > <a  routerLink="" routerLinkActive="active" class="nav-link"> Movies</a></li>
-           
-          <li class="nav-item" *ngIf="!isAuthenticated()"><a routerLink="signup" routerLinkActive="active" class="nav-link"> Signup</a></li>
-          <li class="nav-item" *ngIf="isAuthenticated() && !isAdmin()"><a routerLink="favorite" routerLinkActive="active" class="nav-link"> favorite</a></li>
-          <li class="nav-item" *ngIf="!isAuthenticated()"><a routerLink="login" routerLinkActive="active" class="nav-link"> Log In</a></li>
-          <li class="nav-item" *ngIf="isAuthenticated()"><a class="nav-link"><i class="material-icons">
-perm_identity
-</i>  {{getUser().lastname}},{{getUser().firstname}}</a></li>
-          <li class="nav-item" *ngIf="isAuthenticated()"><a routerLink=" " routerLinkActive="active" class="nav-link" (click)="onSignOut()"> Log Out</a></li>
-      </ul>
-
+  <div class="navbar-collapse collapse" id="navcontent">
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item">
+        <a routerLink="" routerLinkActive="active" class="nav-link">Movies
+        </a>
+      </li>
+      <li class="nav-item">
+        <a routerLink="login" routerLinkActive="active" class="nav-link" *ngIf="!isAuthenticated()">Login
+        </a>
+      </li>
+      <li class="nav-item">
+        <a routerLink="signUp" routerLinkActive="active" class="nav-link" *ngIf="!isAuthenticated()">SignUp
+        </a>
+      </li>
+      <li class="nav-item">
+        <a routerLink="favorite" routerLinkActive="active" class="nav-link"
+          *ngIf="isAuthenticated() &&  !isAdmin()">Favorites
+        </a>
+      </li>
+      <li class="nav-item">
+        <a routerLink="#" routerLinkActive="active" class="nav-link" *ngIf="isAuthenticated()">
+          <i class="material-icons" style="vertical-align: middle;">
+            person
+          </i>{{getUser()}}
+        </a>
+      </li>
+      <li class="nav-item"><a href="" class="nav-link" *ngIf="isAuthenticated()">Logout</a></li>
+    </ul>
   </div>
 </nav>
